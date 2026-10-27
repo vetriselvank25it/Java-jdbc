@@ -12,7 +12,7 @@
 [![JDBC](https://img.shields.io/badge/JDBC-4.2%20Connector%208.3.0-007396?style=for-the-badge&logo=java&logoColor=white)](https://dev.mysql.com/downloads/connector/j/)
 [![Database](https://img.shields.io/badge/Database-MySQL%20%7C%20MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc)
-[![Download Project PDF](https://img.shields.io/badge/Download-Project%20Report%20PDF-E11D48?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/Academic_Management_System_Project_Report.pdf)
+[![Download Project PDF](https://img.shields.io/badge/Download-Project%20Report%20PDF-E11D48?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc/raw/main/PROJECT_REPORT.pdf)
 
 ---
 
@@ -20,9 +20,9 @@
 
 | Access Method | Link / Action | Details |
 | :--- | :--- | :--- |
-| 🚀 **Direct Download (One-Click)** | [**Download Academic Management System Report PDF**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/Academic_Management_System_Project_Report.pdf) | Direct raw download link from GitHub repository |
-| 📂 **Mirror Download Link** | [**Download KEC R2024 Report PDF**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/KEC_R2024_Academic_System_Project_Report.pdf) | Alternative direct download link in `docs/` |
-| 👁️ **View on GitHub (Web Viewer)** | [**Open PDF in GitHub Browser**](https://github.com/vetriselvank25it/Java-jdbc/blob/main/docs/Academic_Management_System_Project_Report.pdf) | View directly inside GitHub's integrated PDF reader |
+| 🚀 **Direct Download (One-Click)** | [**Download Project Report PDF (Root)**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/PROJECT_REPORT.pdf) | Direct raw download link from GitHub repository |
+| 📂 **Mirror Download Link (Docs)** | [**Download from Docs Folder**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/PROJECT_REPORT.pdf) | Mirrored direct download link in `docs/` |
+| 👁️ **View on GitHub (Web Viewer)** | [**Open PDF in GitHub Browser**](https://github.com/vetriselvank25it/Java-jdbc/blob/main/PROJECT_REPORT.pdf) | View directly inside GitHub's integrated PDF reader |
 | 📝 **Markdown Documentation** | [**View Detailed PROJECT_REPORT.md**](docs/PROJECT_REPORT.md) | Full technical breakdown, math formulas, and report text |
 
 ---
@@ -216,6 +216,7 @@ KEC_R2024_Academic_System/
 ├── run.bat                                 # Interactive console launcher
 ├── run_demo.bat                            # Automated end-to-end verification suite
 ├── README.md                               # Complete project documentation & guide
+├── PROJECT_REPORT.pdf                      # Official Academic Project Report (PDF)
 │
 ├── lib/
 │   └── mysql-connector-j-8.3.0.jar         # MySQL JDBC Driver library

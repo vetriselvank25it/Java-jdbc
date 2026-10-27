@@ -1,190 +1,189 @@
-# PROJECT EXECUTION REPORT
-## Kongu Engineering College (Autonomous), Perundurai - 638060
-### Regulation 2024 (R2024) Student Academic & Continuous Evaluation System
-**Department:** Information Technology / Computer Science and Engineering  
-**Technology Stack:** Java (JDK 26), JDBC 4.2, MariaDB 10.4 / MySQL, PowerShell, Windows 11  
+# KONGU ENGINEERING COLLEGE (AUTONOMOUS), PERUNDURAI - 638060
+### TRANSFORM YOURSELF
+## DEPARTMENT OF INFORMATION TECHNOLOGY
+### 24ITT32 - PROGRAMMING IN JAVA
+# INDIVIDUAL PROJECT ON ACADEMIC MANAGEMENT SYSTEM
+## PROJECT REPORT
+
+**Submitted by:**  
+**VETRISELVAN K** (Roll No: **25ITR170**)  
+**GitHub Repository:** [https://github.com/vetriselvank25it/Java-jdbc.git](https://github.com/vetriselvank25it/Java-jdbc.git)
 
 ---
 
-## 1. Objective & Scope
-The objective of this project is to develop a database-driven Java application utilizing JDBC to manage student academic records, implement phased continuous internal assessments ("Then and Now"), enforce statutory attendance eligibility criteria including medical condonation, and generate formal academic performance reports adhering strictly to **Kongu Engineering College (Autonomous) - Regulation 2024 (R2024)**.
+## JAVA ASSIGNMENT
+
+### AIM:
+Development of Kongu Engineering College (R2024) Student Academic & Continuous Evaluation System using Java JDBC.
+
+### OBJECTIVE:
+Design and develop a database-driven Java application using JDBC to manage student records, perform incremental marks entry (Continuous Internal Assessments and End Semester Examinations), enforce attendance eligibility rules, and generate formal academic performance reports according to Kongu Engineering College (Autonomous) - Regulation 2024. System Requirements & Specifications.
 
 ---
 
-## 2. System Architecture & Database Design
+## FLOW CHART:
 
-### 2.1 Entity Relationship Diagram (ERD)
-```
- +------------------------+             +-------------------------+
- |        STUDENTS        |             |         COURSES         |
- +------------------------+             +-------------------------+
- | PK  roll_no (VARCHAR)  | 1         1 | PK  course_code (VARCHAR|
- |     name (VARCHAR)     |             |     title (VARCHAR)     |
- |     department (VAR)   |             |     credits (DECIMAL)   |
- |     current_semester   |             |     course_type (ENUM)  |
- +-----------+------------+             +------------+------------+
-             |                                       |
-             | 1                                     | 1
-             |                                       |
-             +------------------+  +-----------------+
-                                |  |
-                                v  v *
-                     +---------------------------+
-                     |        ENROLLMENTS        |
-                     +---------------------------+
-                     | PK  enrollment_id (INT)   |
-                     | FK  roll_no (VARCHAR)     |
-                     | FK  course_code (VARCHAR) |
-                     |     semester (INT)        |
-                     |     classes_held (INT)    |
-                     |     classes_attended (INT)|
-                     |     medical_condonation   |
-                     +-------------+-------------+
-                                   | 1
-                                   |
-                                   v 1
-                     +---------------------------+
-                     |     ASSESSMENT_MARKS      |
-                     +---------------------------+
-                     | PK  mark_id (INT)         |
-                     | FK  enrollment_id (INT)   |
-                     |     cia_test1 (DECIMAL)   |
-                     |     cia_test2 (DECIMAL)   |
-                     |     assignment_quiz_lab   |
-                     |     ese_marks (DECIMAL)   |
-                     |     is_ese_absent (BOOL)  |
-                     |     computed_cia (DEC)    |
-                     |     computed_ese (DEC)    |
-                     |     total_marks (DECIMAL) |
-                     |     letter_grade (VARCHAR)|
-                     |     grade_point (INT)     |
-                     |     result_status (VAR)   |
-                     +---------------------------+
+```mermaid
+flowchart TD
+    START(["START: Launch Application"]) --> INIT["Initialize JDBC Driver & Connect to MySQL<br>Database: 'kec_eval_db' (Host: localhost:3306)"]
+    INIT --> LOAD["Load Student & Course Enrollment Data<br>Select Roll No & Target Semester (1 to 8)"]
+    
+    LOAD --> ATT75{"Attendance &ge; 75%?<br>(Minimum Eligibility Check)"}
+    
+    ATT75 -- No --> ATT65{"Attendance &ge; 65% &<br>Condonation OK?"}
+    ATT75 -- Yes --> SCALING["Continuous Evaluation Mark Scaling (R2024)<br>Theory: 40% CIA + 60% ESE | Practical: 60% CIA + 40% ESE | Embedded: 50% CIA + 50% ESE"]
+    
+    ATT65 -- No --> BARRED["Barred from Exam<br>Grade 'SA' (Credits = 0)"]
+    ATT65 -- Yes --> SCALING
+    
+    SCALING --> PASSCHECK{"Total &ge; 50 &<br>ESE Minimum Satisfied?"}
+    PASSCHECK -- No (Pass) --> ARREAR["Award Grade 'RA'<br>(Re-Appearance / Arrear)"]
+    PASSCHECK -- Yes (Pass) --> GRADE["Assign Letter Grade & Grade Points (GP)<br>O (10), A+ (9), A (8), B+ (7), B (6)"]
+    
+    GRADE --> SGPA["Compute Semester Grade Point Average (SGPA)<br>Formula: SGPA = &Sigma;(Credits &times; GP) / &Sigma;(Credits)"]
+    ARREAR --> SGPA
+    BARRED --> SGPA
+    
+    SGPA --> OUTPUT["Output Grade Sheet & Class Analytics<br>Render on Web Dashboard & Command Prompt CLI"]
+    OUTPUT --> ENDNODE(["END: Evaluation Complete"])
 ```
 
 ---
 
-## 3. Kongu Engineering College (R2024) Regulation Engine
+## PROCEDURE:
 
-### 3.1 Course Weightage Engine
-Kongu Engineering College Regulation 2024 classifies courses into three distinct categories with custom continuous internal assessment (CIA) and end semester examination (ESE) distributions:
-
-1. **THEORY COURSES**:
-   - $\text{CIA Weightage} = 40\%$
-   - $\text{ESE Weightage} = 60\%$
-   - $\text{ESE Minimum Threshold} = 45\%$ ($27.0 / 60$ scaled or $45 / 100$ raw)
-   - $\text{Overall Pass Minimum} = 50.0$ Marks
-
-2. **PRACTICAL COURSES**:
-   - $\text{CIA Weightage} = 60\%$
-   - $\text{ESE Weightage} = 40\%$
-   - $\text{ESE Minimum Threshold} = 50\%$ ($20.0 / 40$ scaled or $50 / 100$ raw)
-   - $\text{Overall Pass Minimum} = 50.0$ Marks
-
-3. **EMBEDDED COURSES** (Integrated Theory & Lab):
-   - $\text{CIA Weightage} = 50\%$
-   - $\text{ESE Weightage} = 50\%$
-   - $\text{ESE Minimum Threshold} = 45\%$ ($22.5 / 50$ scaled or $45 / 100$ raw)
-   - $\text{Overall Pass Minimum} = 50.0$ Marks
-
-### 3.2 Phased Assessment Workflow ("Then and Now")
-Assessment marks entry is decoupled into 3 distinct phases to simulate real-world academic semesters:
-- **Phase 1 (Mid-Semester)**: Evaluates and records `cia_test1` (0–100) and `cia_test2` (0–100).
-- **Phase 2 (End-of-Semester CIA)**: Evaluates and records `assignment_quiz_lab` (0–100).
-- **Phase 3 (Post Semester ESE)**: Records `ese_marks` (0–100) and checks absentee status (`is_ese_absent`).
-
-$$\text{CIA}_{100} = (0.35 \times \text{CIA}_1) + (0.35 \times \text{CIA}_2) + (0.30 \times \text{Assignment})$$
-$$\text{Scaled CIA} = \text{CIA}_{100} \times \left(\frac{\text{CIA Weightage}}{100}\right)$$
-$$\text{Scaled ESE} = \text{ESE}_{100} \times \left(\frac{\text{ESE Weightage}}{100}\right)$$
-$$\text{Total Marks} = \text{Scaled CIA} + \text{Scaled ESE}$$
-
-### 3.3 Attendance Eligibility Rules
-- **$\ge 75.0\%$**: Eligible for ESE.
-- **$65.0\% - 74.9\%$**: Conditionally eligible. Requires approved Medical Condonation. If approved, the student is permitted to sit for ESE. Otherwise, barred and awarded **SA** grade.
-- **$< 65.0\%$**: Shortage of Attendance. Barred from ESE, awarded **SA** grade with 0 grade points.
-
-### 3.4 10-Point Absolute Grading System
-- **O (91 - 100)**: Grade Point 10 (Outstanding)
-- **A+ (81 - 90)**: Grade Point 9 (Excellent)
-- **A (71 - 80)**: Grade Point 8 (Very Good)
-- **B+ (61 - 70)**: Grade Point 7 (Good)
-- **B (50 - 60)**: Grade Point 6 (Average)
-- **RA**: Re-Appearance (Failed ESE minimum threshold or aggregate $< 50$) $\to$ Grade Point 0
-- **SA**: Shortage of Attendance $\to$ Grade Point 0
-- **AB**: Absent in ESE $\to$ Grade Point 0
-
-### 3.5 SGPA and Percentage Formulas
-$$\text{SGPA} = \frac{\sum (\text{Course Credits} \times \text{Grade Points Earned})}{\sum \text{Total Enrolled Credits}}$$
-$$\text{Equivalent Percentage} = \text{SGPA} \times 10$$
+1. **Load JDBC Driver:** Load the MySQL Connector/J driver to enable communication between the Java application and the MySQL database.
+2. **Establish Connection:** Establish a connection to the `kec_eval_db` database running on the local MySQL server using `DriverManager.getConnection()`.
+3. **Manage Students & Courses:** Store and retrieve student details, including roll number, name, department, and semester, along with course information such as course code, title, credits, and course type.
+4. **Enroll & Track Attendance:** Enroll students in semester courses, record the number of classes held and attended, and calculate the attendance percentage.
+5. **Verify Eligibility:** Verify examination eligibility based on attendance percentage. Students with 75% or above are eligible, those with 65%–74% require medical condonation verification, and those below 65% are marked as Shortage of Attendance (SA).
+6. **Continuous Assessment Entry:** Record CIA-1, CIA-2, and assignment marks, and calculate the scaled internal assessment marks according to the specified theory and practical course weightages.
+7. **ESE Assessment:** Record end-semester examination marks out of 100, verify the minimum passing requirements, and scale the marks according to the applicable theory and practical course categories.
+8. **Final Grades & SGPA:** Calculate the total marks by combining scaled CIA and ESE marks. Assign letter grades and grade points according to the specified grading scale, marking students as RA if they fail the examination or score below the required passing mark.
+9. **Reporting:** Generate student grade sheets, attendance shortage reports, and department-wise pass percentage reports. Display the results through the interactive web dashboard and the command prompt console.
 
 ---
 
-## 4. Verification Proofs & Execution Screenshots
+## DATABASE SCHEMA:
 
-### Proof 1: Student Registration & Course Catalog Management
-The system successfully registers students with Department and Semester, and courses with credit weightages and course categories (THEORY, PRACTICAL, EMBEDDED).
-
-![Screenshot 1 - Student and Course Registration](screenshots/1_student_course_registration.jpg)
-
-### Proof 2: Incremental Marks Entry ("Then and Now")
-Phased continuous internal assessments entered incrementally across Phase 1 (CIA 1 & CIA 2), Phase 2 (Assignments & Lab), and Phase 3 (End Semester Examination & Absentee check).
-
-![Screenshot 2 - Incremental Marks Entry](screenshots/2_incremental_marks_entry.jpg)
-
-### Proof 3: Official KEC R2024 Grade Sheet with SGPA & Equivalent Percentage
-Student Grade Sheet with scaled CIA, scaled ESE, overall totals, letter grades, GP, SGPA (9.53 / 10.00), and Equivalent Percentage (95.30%).
-
-![Screenshot 3 - Grade Sheet and SGPA Calculation](screenshots/3_grade_sheet_sgpa.jpg)
-
----
-
-## 5. Formal Reporting Outputs
-
-### 5.1 Sample Grade Sheet Output (Terminal Format)
-```
-============================================================================================================
-                       KONGU ENGINEERING COLLEGE (AUTONOMOUS)                                               
-                             OFFICE OF CONTROLLER OF EXAMINATIONS                                           
-                     REGULATION 2024 (R2024) - GRADE SHEET / MARK STATEMENT                                 
-============================================================================================================
- Roll Number  : 24ITR099        | Name       : Vijay Anand S                      
- Department   : IT              | Semester   : 3     | Academic Batch: 2024-2028
-------------------------------------------------------------------------------------------------------------
-Course    | Course Title                     | Type      | Cred | Att(%) | CIA Mark  | ESE Mark  | Total  | Grade | GP  | Result    
-------------------------------------------------------------------------------------------------------------
-24ITE34   | Cloud Computing and DevOps       | EMBEDDED  | 4.0  | 90.0 % | 45.0/50   | 43.0/50   | 88.0   | A+    | 9   | PASS      
-24ITP32   | Object Oriented Programming Lab  | PRACTICAL | 1.5  | 90.0 % | 57.5/60   | 36.0/40   | 93.5   | O     | 10  | PASS      
-24ITT31   | Database Management Systems      | THEORY    | 3.0  | 94.0 % | 36.9/40   | 55.2/60   | 92.1   | O     | 10  | PASS      
-============================================================================================================
- Total Registered Credits : 8.5    | Total Credits Earned : 8.5   
- SEMESTER GRADE POINT AVERAGE (SGPA) :  9.53 / 10.00
- EQUIVALENT PERCENTAGE               : 95.30 %
- OVERALL SEMESTER RESULT             : ALL COURSES PASSED
-============================================================================================================
+### 1. STUDENTS TABLE:
+```sql
+CREATE TABLE students (
+    roll_no VARCHAR(20) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    department VARCHAR(20) NOT NULL,
+    current_semester INT NOT NULL CHECK (current_semester BETWEEN 1 AND 8),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 ```
 
-### 5.2 Attendance Defaulter Report (Grade SA)
-```
---------------------------------------------------------------------------------------------------------------
-Roll No    | Student Name       | Dept  | Course   | Course Title                 | Held  | Attn  | Attn %  | Action/Status
---------------------------------------------------------------------------------------------------------------
-24ITR003   | Chandru M          | IT    | 24ITT31  | Database Management Systems  | 50    | 28    | 56.0  % | Barred (<65% SA)
-24ITR003   | Chandru M          | IT    | 24ITP32  | Object Oriented Java Lab     | 30    | 20    | 66.7  % | No Condonation (SA)
---------------------------------------------------------------------------------------------------------------
+### 2. COURSES TABLE:
+```sql
+CREATE TABLE courses (
+    course_code VARCHAR(20) PRIMARY KEY,
+    title VARCHAR(150) NOT NULL,
+    credits DECIMAL(3, 1) NOT NULL CHECK (credits > 0),
+    course_type ENUM('THEORY', 'PRACTICAL', 'EMBEDDED') NOT NULL,
+    department VARCHAR(20) NOT NULL,
+    semester INT NOT NULL CHECK (semester BETWEEN 1 AND 8)
+);
 ```
 
-### 5.3 Class Performance & Department Result Summary
+### 3. ENROLLMENTS TABLE:
+```sql
+CREATE TABLE enrollments (
+    enrollment_id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(20) NOT NULL,
+    course_code VARCHAR(20) NOT NULL,
+    semester INT NOT NULL,
+    classes_held INT DEFAULT 0,
+    classes_attended INT DEFAULT 0,
+    medical_condonation BOOLEAN DEFAULT FALSE,
+    condonation_reason VARCHAR(255),
+    FOREIGN KEY (roll_no) REFERENCES students(roll_no) ON DELETE CASCADE,
+    FOREIGN KEY (course_code) REFERENCES courses(course_code) ON DELETE CASCADE,
+    UNIQUE (roll_no, course_code, semester)
+);
 ```
-------------------------------------------------------------------------------------------------------
-Dept     | Students | Enrollments  | Passed   | RA(Arrear) | SA     | AB     | Pass %     | Avg SGPA  
-------------------------------------------------------------------------------------------------------
-CSE      | 1        | 1            | 1        | 0        | 0      | 0      | 100.00   % | 9.00      
-ECE      | 1        | 1            | 1        | 0        | 0      | 0      | 100.00   % | 8.00      
-IT       | 5        | 15           | 11       | 1        | 2      | 1      | 73.33    % | 6.56      
-------------------------------------------------------------------------------------------------------
+
+### 4. ASSESSMENT MARKS TABLE:
+```sql
+CREATE TABLE assessment_marks (
+    mark_id INT AUTO_INCREMENT PRIMARY KEY,
+    enrollment_id INT UNIQUE NOT NULL,
+    cia_test1 DECIMAL(5, 2) DEFAULT NULL,
+    cia_test2 DECIMAL(5, 2) DEFAULT NULL,
+    assignment_quiz_lab DECIMAL(5, 2) DEFAULT NULL,
+    ese_marks DECIMAL(5, 2) DEFAULT NULL,
+    is_ese_absent BOOLEAN DEFAULT FALSE,
+    computed_cia DECIMAL(5, 2) DEFAULT NULL,
+    computed_ese DECIMAL(5, 2) DEFAULT NULL,
+    total_marks DECIMAL(5, 2) DEFAULT NULL,
+    letter_grade VARCHAR(5) DEFAULT NULL,
+    grade_point INT DEFAULT NULL,
+    result_status VARCHAR(30) DEFAULT NULL,
+    FOREIGN KEY (enrollment_id) REFERENCES enrollments(enrollment_id) ON DELETE CASCADE
+);
 ```
 
 ---
 
-## 6. Conclusion
-The application meets and exceeds all specifications outlined in Kongu Engineering College Regulation 2024. All database tables, JDBC DAOs, weightage calculations, attendance filter thresholds, and academic reporting mechanisms function with 100% precision and compliance.
+## OUTPUT SCREENSHOTS & EXECUTION PROOFS:
+
+### 1. Main Menu:
+Console menu interface with options for registration, catalog, enrollments, attendance, phased marks entry, grade sheet, defaulters list, summary, and exit.
+
+### 2. Student & Course Management:
+- **Student Registration:** Roll Number `25ITR170`, Full Name `VETRISELVAN K`, Department `IT`, Semester `3`.
+- **Course Catalog Management:** Code `24ITR11`, Title `Game Development`, Credits `3.0`, Type `EMBEDDED`.
+- **Course Enrollment & Attendance Tracking:** Roll No `25ITR170` enrolled into `24ITP32` (Object Oriented Programming with Java Lab, PRACTICAL, Credits: 1.5).
+
+### 3. Incremental Marks Entry ("Then and Now"):
+- **Phase 1 (Mid-Semester):** CIA 1 Marks (92), CIA 2 Marks (93) recorded for student `25ITL187`, course `24ITC31`.
+- **Phase 2 (End of Semester - CIA):** Assignment / Quiz / Lab Evaluation Marks (90) recorded.
+- **Phase 3 (Post Semester ESE):** End Semester Examination (ESE) mark entered or flagged absent (`AB`).
+
+### 4. Attendance & Grading Rules:
+- **Attendance Filter:** Defaulter and condonation report detailing attendance percentages, conditional medical condonations, and barred (`SA`) candidates.
+
+### 5. Student Semester Mark Sheet:
+- Complete grade sheet with scaled CIA, scaled ESE, Letter Grades, SGPA (`10.00 / 10.00`), and Equivalent Percentage (`100.00%`).
+
+### 6. Department Wise Class Performance & Result Summary:
+- Consolidated department metrics across CSE, ECE, and IT including pass percentages and average SGPAs.
+
+---
+
+## RESULT:
+
+Thus, the Student Academic and Continuous Evaluation System for Kongu Engineering College (Autonomous) Regulation 2024 was successfully designed, developed, and tested using Java (JDBC) and MySQL. The system accurately automates the calculation of Continuous Internal Assessments (CIA), End Semester Examinations (ESE), Letter Grades, Attendance Eligibility, and Semester Grade Point Average (SGPA).
+
+---
+
+## REFERENCES:
+
+1. Oracle, Java SE Documentation – JDBC Overview and Architecture.  
+   [https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)
+2. Oracle, Java SE API – HttpServer.  
+   [https://docs.oracle.com/en/java/javase/17/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html](https://docs.oracle.com/en/java/javase/17/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html)
+3. Oracle, MySQL 8.0 Reference Manual.  
+   [https://dev.mysql.com/doc/refman/8.0/en/](https://dev.mysql.com/doc/refman/8.0/en/)
+4. Oracle, MySQL Connector/J Developer Guide.  
+   [https://dev.mysql.com/doc/connector-j/8.0/en/](https://dev.mysql.com/doc/connector-j/8.0/en/)
+5. University Grants Commission, Guidelines for Choice Based Credit System (CBCS).  
+   [https://www.ugc.gov.in/pdfnews/8023719_Guidelines-for-CBCS.pdf](https://www.ugc.gov.in/pdfnews/8023719_Guidelines-for-CBCS.pdf)
+6. Chart.js, Chart.js Documentation.  
+   [https://www.chartjs.org/docs/latest/](https://www.chartjs.org/docs/latest/)
+7. Tailwind CSS, Tailwind CSS Documentation.  
+   [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+8. GeeksforGeeks, Establishing JDBC Connection in Java.  
+   [https://www.geeksforgeeks.org/establishing-jdbc-connection-in-java/](https://www.geeksforgeeks.org/establishing-jdbc-connection-in-java/)
+9. YouTube, Java JDBC with MySQL Tutorial Videos.  
+   [https://www.youtube.com/results?search_query=Java+JDBC+MySQL+tutorial](https://www.youtube.com/results?search_query=Java+JDBC+MySQL+tutorial)
+10. Anthropic, Claude AI Assistant (used for project ideas and guidance).  
+    [https://claude.ai/](https://claude.ai/)
+
+---
+
+## GITHUB REPOSITORY:
+**LINK:** [https://github.com/vetriselvank25it/Java-jdbc.git](https://github.com/vetriselvank25it/Java-jdbc.git)

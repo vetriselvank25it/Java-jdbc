@@ -1,63 +1,96 @@
 # Kongu Engineering College (Autonomous), Perundurai - 638060
-## Regulation 2024 (R2024) - Student Academic & Continuous Evaluation System
-### Enterprise Java JDBC & Relational Database Application
-
-[![Java](https://img.shields.io/badge/Java-JDK%2017%2B%20%7C%2021%2B-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
-[![JDBC](https://img.shields.io/badge/JDBC-4.2%20Connector%208.3.0-007396?style=for-the-badge&logo=java&logoColor=white)](https://dev.mysql.com/downloads/connector/j/)
-[![Database](https://img.shields.io/badge/Database-MySQL%20%7C%20MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc)
-[![Download Project PDF](https://img.shields.io/badge/Download-Project%20Report%20PDF-E11D48?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/KEC_R2024_Academic_System_Project_Report.pdf)
+## Department of Information Technology
+### 24ITT32 - PROGRAMMING IN JAVA
+# Individual Project on Academic Management System
+### Regulation 2024 (R2024) - Student Academic & Continuous Evaluation System
+**Submitted by:** **VETRISELVAN K** (Roll No: **25ITR170**)  
+**Repository:** [https://github.com/vetriselvank25it/Java-jdbc.git](https://github.com/vetriselvank25it/Java-jdbc.git)
 
 ---
 
-## 📥 Project PDF Report - Direct Download
+[![Java](https://img.shields.io/badge/Java-JDK%2017%2B%20%7C%2021%2B%20%7C%2026-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.oracle.com/java/)
+[![JDBC](https://img.shields.io/badge/JDBC-4.2%20Connector%208.3.0-007396?style=for-the-badge&logo=java&logoColor=white)](https://dev.mysql.com/downloads/connector/j/)
+[![Database](https://img.shields.io/badge/Database-MySQL%20%7C%20MariaDB-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux%20%7C%20macOS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc)
+[![Download Project PDF](https://img.shields.io/badge/Download-Project%20Report%20PDF-E11D48?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/Academic_Management_System_Project_Report.pdf)
 
-You can access and download the formal academic project documentation and execution report directly using any of the following links:
+---
+
+## 📥 Project Report PDF - Direct Download
 
 | Access Method | Link / Action | Details |
 | :--- | :--- | :--- |
-| 🚀 **Direct Download (One-Click)** | [**Download Project Report PDF**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/KEC_R2024_Academic_System_Project_Report.pdf) | Direct raw download link from GitHub repository (`docs/`) |
-| 👁️ **View on GitHub (Web Viewer)** | [**Open PDF in GitHub Browser**](https://github.com/vetriselvank25it/Java-jdbc/blob/main/docs/KEC_R2024_Academic_System_Project_Report.pdf) | View directly inside GitHub's integrated PDF reader |
+| 🚀 **Direct Download (One-Click)** | [**Download Academic Management System Report PDF**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/Academic_Management_System_Project_Report.pdf) | Direct raw download link from GitHub repository |
+| 📂 **Mirror Download Link** | [**Download KEC R2024 Report PDF**](https://github.com/vetriselvank25it/Java-jdbc/raw/main/docs/KEC_R2024_Academic_System_Project_Report.pdf) | Alternative direct download link in `docs/` |
+| 👁️ **View on GitHub (Web Viewer)** | [**Open PDF in GitHub Browser**](https://github.com/vetriselvank25it/Java-jdbc/blob/main/docs/Academic_Management_System_Project_Report.pdf) | View directly inside GitHub's integrated PDF reader |
 | 📝 **Markdown Documentation** | [**View Detailed PROJECT_REPORT.md**](docs/PROJECT_REPORT.md) | Full technical breakdown, math formulas, and report text |
 
 ---
 
-## 📖 Table of Contents
-1. [About the Project](#-about-the-project)
-2. [Key System Features](#-key-system-features)
-3. [Technology Stack](#-technology-stack)
-4. [KEC R2024 Regulation & Evaluation Engine](#-kec-r2024-regulation--evaluation-engine)
-5. [Database Architecture & Schema](#-database-architecture--schema)
-6. [Project Directory Layout](#-project-directory-layout)
-7. [Prerequisites & Database Setup](#-prerequisites--database-setup)
-8. [How to Run (Running Commands)](#-how-to-run-running-commands)
-9. [Sample Academic Outputs](#-sample-academic-outputs)
-10. [Execution Proofs & Screenshots](#-execution-proofs--screenshots)
-11. [Author & Academic Credits](#-author--academic-credits)
+## 📋 Project Synopsis
+
+### 🎯 AIM
+Development of **Kongu Engineering College (Autonomous) - Regulation 2024 (R2024)** Student Academic & Continuous Evaluation System using **Java JDBC**.
+
+### 📌 OBJECTIVE
+Design and develop a database-driven Java application using **JDBC** to manage student records, perform incremental marks entry (Continuous Internal Assessments and End Semester Examinations), enforce attendance eligibility rules, and generate formal academic performance reports according to **Kongu Engineering College (Autonomous) - Regulation 2024** System Requirements & Specifications.
 
 ---
 
-## 💡 About the Project
+## 🔄 System Flowchart
 
-The **KEC R2024 Academic & Continuous Evaluation System** is an enterprise-grade, database-driven Java application built using **Java Database Connectivity (JDBC)**. Developed specifically to adhere to the statutory academic norms of **Kongu Engineering College (Autonomous), Perundurai - Regulation 2024 (R2024)**, this system automates end-to-end examination administration, incremental ("Then and Now") continuous internal assessments (CIA), statutory attendance validation with condonation processing, and semester grade sheet generation.
+The operational workflow follows the statutory evaluation roadmap of Kongu Engineering College Regulation 2024:
 
-### Core Objectives:
-- **Comprehensive Academic Records:** Maintain unified relational records of students, course offerings, credit catalogs, and semester enrollments.
-- **Phased Continuous Assessment ("Then and Now"):** Allow incremental entry of marks across mid-semester tests, assignments/lab work, and final end-semester examinations.
-- **Dynamic Weightage Computations:** Automatically switch evaluation rules and passing thresholds based on course classification (`THEORY`, `PRACTICAL`, or `EMBEDDED`).
-- **Statutory Attendance Enforcement:** Programmatically enforce the 75% attendance rule, process medical condonations for 65%–74.9%, and award mandatory **SA** (Shortage of Attendance) grades for unexcused defaulters.
-- **Official R2024 10-Point Absolute Grading:** Calculate course letter grades, grade points, Semester Grade Point Average (SGPA), and Equivalent Percentage according to the official R2024 formula.
+```mermaid
+flowchart TD
+    START(["START: Launch Application"]) --> INIT["Initialize JDBC Driver & Connect to MySQL<br>Database: 'kec_eval_db' (Host: localhost:3306)"]
+    INIT --> LOAD["Load Student & Course Enrollment Data<br>Select Roll No & Target Semester (1 to 8)"]
+    
+    LOAD --> ATT75{"Attendance &ge; 75%?<br>(Minimum Eligibility Check)"}
+    
+    ATT75 -- No --> ATT65{"Attendance &ge; 65% &<br>Medical Condonation OK?"}
+    ATT75 -- Yes --> SCALING["Continuous Evaluation Mark Scaling (R2024)<br>Theory: 40% CIA + 60% ESE | Practical: 60% CIA + 40% ESE | Embedded: 50% CIA + 50% ESE"]
+    
+    ATT65 -- No --> BARRED["Barred from Exam<br>Award Grade 'SA' (Credits = 0)"]
+    ATT65 -- Yes (Condonation Approved) --> SCALING
+    
+    SCALING --> PASSCHECK{"Total &ge; 50 &<br>ESE Minimum Satisfied?"}
+    PASSCHECK -- No --> ARREAR["Award Grade 'RA'<br>(Re-Appearance / Arrear)"]
+    PASSCHECK -- Yes (Pass) --> GRADE["Assign Letter Grade & Grade Points (GP)<br>O (10), A+ (9), A (8), B+ (7), B (6)"]
+    
+    GRADE --> SGPA["Compute Semester Grade Point Average (SGPA)<br>SGPA = &Sigma;(Credits &times; GP) / &Sigma;(Credits)"]
+    ARREAR --> SGPA
+    BARRED --> SGPA
+    
+    SGPA --> OUTPUT["Output Grade Sheet & Class Analytics<br>Render on Terminal Console & Reports"]
+    OUTPUT --> ENDNODE(["END: Evaluation Complete"])
+
+    style START fill:#0284c7,stroke:#0369a1,color:#ffffff
+    style ENDNODE fill:#0284c7,stroke:#0369a1,color:#ffffff
+    style ATT75 fill:#f59e0b,stroke:#d97706,color:#ffffff
+    style ATT65 fill:#f59e0b,stroke:#d97706,color:#ffffff
+    style PASSCHECK fill:#f59e0b,stroke:#d97706,color:#ffffff
+    style BARRED fill:#ef4444,stroke:#dc2626,color:#ffffff
+    style ARREAR fill:#f97316,stroke:#ea580c,color:#ffffff
+    style GRADE fill:#10b981,stroke:#059669,color:#ffffff
+```
 
 ---
 
-## ✨ Key System Features
+## 📝 Step-by-Step Implementation Procedure
 
-- 🛡️ **Robust DAO Architecture:** Clean separation of concerns with Model-DAO design, zero business logic inside UI, and pure SQL interactions via `PreparedStatement`.
-- 🔒 **ACID Compliance & Injection Prevention:** 100% parameterized SQL queries preventing SQL Injection attacks and ensuring database integrity with foreign key cascade actions.
-- 🔄 **Self-Initializing Database:** Automatically checks connection status and bootstraps tables on application startup if they do not exist.
-- 📊 **Department & Class Analytics:** Generates department-wide summary statistics, enrollment totals, pass percentages, and average SGPA metrics.
-- 🚫 **Defaulter & Arrear Tracking:** Automated identification of students barred due to attendance shortage (`SA`), examination absentees (`AB`), and reappearance candidates (`RA`).
-- ⚡ **Dual Execution Modes:** Includes an interactive menu-driven CLI (`MainApp`) for administrators as well as an automated simulation suite (`TestSimulation`) for instant end-to-end verification.
+1. **Load JDBC Driver:** Load the MySQL Connector/J driver (`com.mysql.cj.jdbc.Driver`) to enable communication between the Java application and the MySQL / MariaDB database server.
+2. **Establish Database Connection:** Establish a connection to the `kec_eval_db` database running on the local MySQL server using `DriverManager.getConnection()`.
+3. **Student & Course Management:** Store and retrieve student details, including roll number, name, department, and semester, along with course information such as course code, title, credits, and course type (`THEORY`, `PRACTICAL`, or `EMBEDDED`).
+4. **Course Enrollment & Attendance Tracking:** Enroll students in semester courses, record the number of classes held and attended, and calculate the attendance percentage.
+5. **Enforce Attendance Eligibility Rules:** Verify examination eligibility based on attendance percentage:
+   - **$\ge 75\%$:** Fully eligible for End Semester Examination (ESE).
+   - **$65\% - 74\%$:** Require approved medical condonation verification.
+   - **$< 65\%$:** Automatically marked as **Shortage of Attendance (SA)** and barred from examination.
+6. **Incremental Continuous Assessments ("Then and Now"):** Record CIA-1, CIA-2, and assignment/quiz/lab marks incrementally, and calculate the scaled continuous internal assessment marks according to course category weightages.
+7. **End Semester Examination (ESE) Scoring:** Record end-semester examination marks out of 100 or mark as absent (`AB`), verify the minimum passing requirements, and scale the marks according to applicable course weightage.
+8. **Final Mark & Grade Computation:** Calculate total marks by combining scaled CIA and ESE marks. Assign letter grades (`O`, `A+`, `A`, `B+`, `B`, `RA`, `SA`, `AB`) and grade points (0 to 10), marking students as **RA** if they fail the examination threshold or score below the passing minimum.
+9. **Academic Reports Generation:** Generate student grade sheets, attendance shortage defaulter reports, and department-wise pass percentage reports. Display the results through interactive console menus and formatted CLI summaries.
 
 ---
 
@@ -65,49 +98,44 @@ The **KEC R2024 Academic & Continuous Evaluation System** is an enterprise-grade
 
 | Component | Technology | Version | Description |
 | :--- | :--- | :--- | :--- |
-| **Language** | Java (OpenJDK / Oracle JDK) | 17+ / 21+ / 26 | Core application logic, OOP models, and calculation engine |
+| **Language** | Java (OpenJDK / Oracle JDK) | 17+ / 21+ / 26 | Core application logic, OOP entity models, and calculation engine |
 | **Database API** | JDBC (Java Database Connectivity) | 4.2 | Database access layer utilizing `Connection`, `PreparedStatement`, and `ResultSet` |
 | **Database Server** | MySQL / MariaDB | 8.0+ / 10.4+ | Relational database management system with UTF-8 support |
-| **JDBC Driver** | MySQL Connector/J | 8.3.0 | Type 4 pure Java driver for database communication |
-| **Architecture Pattern** | DAO / Separation of Concerns | Clean OOP | Distinct Model, DAO, DB Engine, and Presentation layers |
-| **Automation** | Windows Batch Scripting | .bat | One-click build, launch, and automated verification scripts |
+| **JDBC Driver** | MySQL Connector/J | 8.3.0 | Type 4 pure Java driver for database communication (`lib/mysql-connector-j-8.3.0.jar`) |
+| **Design Pattern** | DAO (Data Access Object) | MVC / Clean OOP | Decoupled Model, DAO, DB Engine, and Presentation layers |
+| **Automation** | Windows Batch Scripting | .bat | One-click build (`compile.bat`), launch (`run.bat`), and test suite (`run_demo.bat`) |
 | **Platform** | Cross-Platform | Windows / Linux / macOS | Platform-independent Java bytecode execution |
 
 ---
 
-## 📐 KEC R2024 Regulation & Evaluation Engine
+## 📐 KEC R2024 Evaluation Rules & Weightage Engine
 
-### 1. Course Classification & Weightage Rules
-Kongu Engineering College Regulation 2024 splits courses into three categories, each having unique evaluation proportions:
+### 1. Course Classification & Weightage Proportions
+Kongu Engineering College Regulation 2024 splits courses into three distinct categories with custom continuous internal assessment (CIA) and end semester examination (ESE) distributions:
 
-| Course Category | CIA Weightage | ESE Weightage | ESE Passing Threshold | Overall Passing Minimum |
+| Course Category | CIA Weightage | ESE Weightage | ESE Minimum Threshold | Overall Passing Minimum |
 | :--- | :---: | :---: | :---: | :---: |
 | **THEORY** | **40%** | **60%** | $\ge 45\%$ ($27.0 / 60$ scaled) | **50.0 Marks** |
 | **PRACTICAL** | **60%** | **40%** | $\ge 50\%$ ($20.0 / 40$ scaled) | **50.0 Marks** |
 | **EMBEDDED** | **50%** | **50%** | $\ge 45\%$ ($22.5 / 50$ scaled) | **50.0 Marks** |
 
-### 2. Phased Incremental Assessment ("Then and Now")
-Continuous assessment is entered incrementally across three distinct stages of the academic semester:
+### 2. Phased Continuous Assessment Workflow ("Then and Now")
+Assessment marks entry is decoupled into 3 distinct phases to simulate real-world academic semesters:
+- **Phase 1 (Mid-Semester):** Records `cia_test1` (0–100) and `cia_test2` (0–100).
+- **Phase 2 (End-of-Semester CIA):** Records `assignment_quiz_lab` (0–100).
+- **Phase 3 (Post-Semester ESE):** Records `ese_marks` (0–100) or flags student as absent (`is_ese_absent`).
 
-```
-[Phase 1: Mid-Semester]          [Phase 2: End-of-Semester CIA]         [Phase 3: ESE Examination]
-  CIA Test 1 (0-100)               Assignment / Quiz / Lab (0-100)        End Semester Exam (0-100)
-  CIA Test 2 (0-100)                              │                                   │
-          │                                       │                                   │
-          ▼                                       ▼                                   ▼
-  Normalized CIA (100) = (CIA_1 × 0.35) + (CIA_2 × 0.35) + (Assignment × 0.30)
-  Scaled CIA           = Normalized CIA × (CIA_Weightage / 100)
-  Scaled ESE           = Raw ESE × (ESE_Weightage / 100)
-  Total Course Marks   = Scaled CIA + Scaled ESE
-```
+$$\text{CIA}_{100} = (0.35 \times \text{CIA}_1) + (0.35 \times \text{CIA}_2) + (0.30 \times \text{Assignment})$$
+$$\text{Scaled CIA} = \text{CIA}_{100} \times \left(\frac{\text{CIA Weightage}}{100}\right)$$
+$$\text{Scaled ESE} = \text{ESE}_{100} \times \left(\frac{\text{ESE Weightage}}{100}\right)$$
+$$\text{Total Marks} = \text{Scaled CIA} + \text{Scaled ESE}$$
 
-### 3. Statutory Attendance & Eligibility Rules
-- **$\ge 75.0\%$ Attendance:** Fully eligible to appear for End Semester Examinations (ESE).
-- **$65.0\% - 74.9\%$ Attendance:** Conditionally eligible. Requires approved **Medical Condonation**. If not approved, the student is barred from ESE and awarded grade **SA**.
-- **$< 65.0\%$ Attendance:** Shortage of Attendance. Mandatorily barred from ESE, awarded grade **SA** (0 Grade Points). Must re-register for the course in subsequent semesters.
+### 3. Statutory Attendance & 10-Point Grading Scale
+- **$\ge 75.0\%$ Attendance:** Eligible for ESE.
+- **$65.0\% - 74.9\%$ Attendance:** Conditionally eligible. Requires approved **Medical Condonation**. If not approved, student is barred from ESE ($\to \text{SA}$).
+- **$< 65.0\%$ Attendance:** Shortage of Attendance. Mandatorily awarded **SA** grade (0 Grade Points). Barred from ESE.
 
-### 4. 10-Point Absolute Grading System
-| Range of Marks | Letter Grade | Grade Point (GP) | Qualitative Result |
+| Range of Marks | Letter Grade | Grade Point (GP) | Status / Result |
 | :---: | :---: | :---: | :---: |
 | **91 – 100** | **O** | **10** | Outstanding (Pass) |
 | **81 – 90** | **A+** | **9** | Excellent (Pass) |
@@ -118,11 +146,9 @@ Continuous assessment is entered incrementally across three distinct stages of t
 | **Shortage of Attendance (<65%)** | **SA** | **0** | Barred / Disqualified |
 | **Absent in ESE Exam** | **AB** | **0** | Absent (Fail) |
 
-### 5. Academic Performance Formulas
-- **Semester Grade Point Average (SGPA):**
-  $$\text{SGPA} = \frac{\sum (\text{Course Credits} \times \text{Grade Points Earned})}{\sum \text{Total Registered Credits}}$$
-- **Equivalent Percentage Calculation:**
-  $$\text{Equivalent Percentage (\%)} = \text{SGPA} \times 10$$
+### 4. SGPA & Equivalent Percentage Formulas
+$$\text{SGPA} = \frac{\sum (\text{Course Credits} \times \text{Grade Points Earned})}{\sum \text{Total Registered Credits}}$$
+$$\text{Equivalent Percentage (\%)} = \text{SGPA} \times 10$$
 
 ---
 
@@ -206,8 +232,9 @@ KEC_R2024_Academic_System/
 │       └── app/
 │
 ├── docs/
-│   ├── PROJECT_REPORT.md                   # Full academic report document
-│   ├── KEC_R2024_Academic_System_Project_Report.pdf # Project report PDF
+│   ├── PROJECT_REPORT.md                   # Full academic project documentation
+│   ├── Academic_Management_System_Project_Report.pdf # Project report PDF (Official)
+│   ├── KEC_R2024_Academic_System_Project_Report.pdf # Project report PDF (Mirror)
 │   └── screenshots/                        # High-resolution execution proofs
 │       ├── 1_student_course_registration.jpg
 │       ├── 2_incremental_marks_entry.jpg
@@ -251,7 +278,7 @@ KEC_R2024_Academic_System/
 - **Java Development Kit (JDK):** Version 17, 21, or newer installed and added to `PATH`.
 - **Database Server:** MySQL Server 8.0+ or MariaDB 10.4+ (e.g., via **XAMPP**, **WAMP**, or standalone MySQL).
 - **Default Database Configuration (`src/com/kec/eval/db/DBConnection.java`):**
-  - **URL:** `jdbc:mysql://localhost:3306/kec_eval_db`
+  - **URL:** `jdbc:mysql://localhost:3306/kec_eval_db?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true`
   - **Username:** `root`
   - **Password:** ` ` *(empty by default for XAMPP)*
 
@@ -383,15 +410,36 @@ IT       | 5        | 15           | 11       | 1        | 2      | 1      | 73.
 
 ---
 
-## 👨‍💻 Author & Academic Credits
+## 🏆 RESULT
 
-- **Developer:** Vetriselvan K
+> **Thus, the Student Academic and Continuous Evaluation System for Kongu Engineering College (Autonomous) Regulation 2024 was successfully designed, developed, and tested using Java (JDBC) and MySQL. The system accurately automates the calculation of Continuous Internal Assessments (CIA), End Semester Examinations (ESE), Letter Grades, Attendance Eligibility, and Semester Grade Point Average (SGPA).**
+
+---
+
+## 📚 REFERENCES
+
+1. **Oracle**, *Java SE Documentation – JDBC Overview and Architecture*. [https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/](https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/)
+2. **Oracle**, *Java SE API – HttpServer*. [https://docs.oracle.com/en/java/javase/17/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html](https://docs.oracle.com/en/java/javase/17/docs/api/jdk.httpserver/com/sun/net/httpserver/HttpServer.html)
+3. **Oracle**, *MySQL 8.0 Reference Manual*. [https://dev.mysql.com/doc/refman/8.0/en/](https://dev.mysql.com/doc/refman/8.0/en/)
+4. **Oracle**, *MySQL Connector/J Developer Guide*. [https://dev.mysql.com/doc/connector-j/8.0/en/](https://dev.mysql.com/doc/connector-j/8.0/en/)
+5. **University Grants Commission (UGC)**, *Guidelines for Choice Based Credit System (CBCS)*. [https://www.ugc.gov.in/pdfnews/8023719_Guidelines-for-CBCS.pdf](https://www.ugc.gov.in/pdfnews/8023719_Guidelines-for-CBCS.pdf)
+6. **Chart.js**, *Chart.js Documentation*. [https://www.chartjs.org/docs/latest/](https://www.chartjs.org/docs/latest/)
+7. **Tailwind CSS**, *Tailwind CSS Documentation*. [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+8. **GeeksforGeeks**, *Establishing JDBC Connection in Java*. [https://www.geeksforgeeks.org/establishing-jdbc-connection-in-java/](https://www.geeksforgeeks.org/establishing-jdbc-connection-in-java/)
+9. **YouTube**, *Java JDBC with MySQL Tutorial Videos*. [https://www.youtube.com/results?search_query=Java+JDBC+MySQL+tutorial](https://www.youtube.com/results?search_query=Java+JDBC+MySQL+tutorial)
+10. **Anthropic**, *Claude AI Assistant* (used for project ideas and guidance). [https://claude.ai/](https://claude.ai/)
+
+---
+
+## 👨‍💻 Author & Academic Submission
+
+- **Student Name:** VETRISELVAN K
 - **Roll Number:** 25ITR170
-- **Department:** Information Technology
+- **Department:** Department of Information Technology
+- **Course:** 24ITT32 - Programming in Java
+- **Project Type:** Individual Project on Academic Management System
 - **Institution:** [Kongu Engineering College (Autonomous)](https://kongu.ac.in/), Perundurai, Erode - 638060, Tamil Nadu, India
-- **Course:** Java & Object-Oriented Database Programming (JDBC)
-- **Academic Framework:** Regulation 2024 (R2024)
-- **GitHub Repository:** [vetriselvank25it/Java-jdbc](https://github.com/vetriselvank25it/Java-jdbc)
+- **GitHub Repository:** [https://github.com/vetriselvank25it/Java-jdbc.git](https://github.com/vetriselvank25it/Java-jdbc.git)
 
 ---
 *Developed with ❤️ and engineering rigor for academic excellence.*
